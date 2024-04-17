@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ApiDevChallenge } from 'src/app/core/config/apis/api-dev-challenge';
+import { ApiDevChallenge } from '../../core/config/apis/api-devchallenges.config'
+import { Product } from '../types/product';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductshttpService {
+export class ProductsHttpService {
 
   private readonly url: string = ApiDevChallenge.baseUrl;
 
@@ -13,8 +14,8 @@ export class ProductshttpService {
     
    }
 
-   public getList$(): void {
-    this.http.get<any>(this.url);
+   public fetchList$() {
+    return this.http.get<Product[]>(this.url);
    }
 
 

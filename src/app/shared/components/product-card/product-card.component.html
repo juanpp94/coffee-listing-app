@@ -1,43 +1,23 @@
-<div class="flex flex-col items-center bg-light-black my-16">
+<div class="flex flex-col items-center bg-light-black my-16 ">
     <header class="relative">
-        <span class="absolute flex justify-center items-center ml-5 mt-2 bg-gold rounded-full w-24 font-semibold text-sm">Popular</span>
+        <span *ngIf="product?.popular" class="absolute flex justify-center items-center ml-5 mt-2 bg-gold rounded-full w-24 font-semibold text-sm">Popular</span>
         <picture id="coffee-image">
-            <img class="rounded-xl" src="https://csyxkpbavpcrhwqhcpyy.supabase.co/storage/v1/object/public/assets/coffee-challenge/cappuccino.jpg" alt="">
+            <img class="rounded-xl" [src]="product.image" alt="">
         </picture>
     </header>
-    <div class="flex items-center space-x-20 mt-4" id="coffe-data">
-        <h6 class="text-cream font-bold">Chocolate Coffee</h6>
-        <span class="flex justify-center bg-light-green p-1 w-12 text-sm rounded-md font-semibold"> $4.00</span>
+    <div class="flex space-x-16  mt-4" id="coffe-data">
+        <h6 class="text-cream font-bold ">{{product.name}}</h6>
+        <span class="flex justify-center bg-light-green p-1 w-12 text-sm rounded-md font-semibold"> {{product.price}}</span>
     </div>
-    <footer class="flex space-x-20 pt-2" id="status">
+    <footer class="flex space-x-16 pt-2" id="status">
         <div class="flex justify-center items-center space-x-2" id="rating">
             <img src="../../../../assets/Star_fill.svg" alt="">
-            <p class="text-cream">4.7 <span class="text-new-gray font-medium">(65 votes)</span></p>
+            <p *ngIf="product.votes > 0" class="text-cream">{{product.rating}} <span class="text-new-gray font-medium">({{product.votes }} votes)</span></p>
+            <p *ngIf="product?.votes === 0" class="text-cream">{{product.rating}} <span class="text-new-gray font-medium">No ratings</span></p>
         </div>
         <div id="availabity">
-            <span class="text-new-red font-semibold">Sold out</span>
+            <span *ngIf="!product?.available" class="text-new-red font-semibold">Sold out</span>
         </div>
     </footer>
 </div>
 
-<div class="flex flex-col items-center bg-light-black my-16">
-    <header class="relative">
-        <span class="absolute flex justify-center items-center ml-5 mt-2 bg-gold rounded-full w-24 font-semibold text-sm">Popular</span>
-        <picture id="coffee-image">
-            <img class="rounded-xl" src="https://csyxkpbavpcrhwqhcpyy.supabase.co/storage/v1/object/public/assets/coffee-challenge/cappuccino.jpg" alt="">
-        </picture>
-    </header>
-    <div class="flex items-center space-x-20 mt-4" id="coffe-data">
-        <h6 class="text-cream font-bold">Chocolate Coffee</h6>
-        <span class="flex justify-center bg-light-green p-1 w-12 text-sm rounded-md font-semibold"> $4.00</span>
-    </div>
-    <footer class="flex space-x-20 pt-2" id="status">
-        <div class="flex justify-center items-center space-x-2" id="rating">
-            <img src="../../../../assets/Star_fill.svg" alt="">
-            <p class="text-cream">4.7 <span class="text-new-gray font-medium">(65 votes)</span></p>
-        </div>
-        <div id="availabity">
-            <span>Sold out</span>
-        </div>
-    </footer>
-</div>
