@@ -1,10 +1,10 @@
-<footer class="grid grid-cols-2 w-64 md:w-48 pt-2" id="status">
-    <div   class="col-start-1 col-end-2 flex space-x-1 " id="rating">
+<footer class="grid grid-cols-2 md:grid-cols-3 w-64 md:w-56 pt-2" id="status">
+    <div   class="col-start-1 col-end-2 md:col-end-3 flex space-x-1 md:justify-center" id="rating">
         <img src="../../../../assets/Star_fill.svg" alt="">
-        <p *ngIf="product.votes > 0" class="text-cream text-sm">{{product.rating}} <span class="text-new-gray text-sm  font-semibold ">({{product.votes }} votes)</span></p>
+        <p *ngIf="product.votes > 0" class="text-cream text-sm ">{{product.rating}} <span class="text-new-gray text-sm  font-semibold ">({{product.votes }} votes)</span></p>
         <span *ngIf="product?.votes === 0" class="text-new-gray text-sm font-semibold ">No ratings</span>
     </div>
-    <div *ngIf="!product?.available" class="flex justify-end col-start-2 col-end-3" id="availabity">
+    <div *ngIf="!product?.available" class="flex justify-end col-start-2 col-end-3 md:col-start-3 md:col-end-4 md:justify-center " id="availabity">
         <span  class="text-new-red font-semibold">Sold out</span>
     </div>
 </footer>
