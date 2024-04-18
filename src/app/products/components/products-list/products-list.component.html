@@ -1,31 +1,18 @@
-<main class="relative flex justify-center">
-    <section class="absolute bg-light-black w-3/4 h-screen -top-36">
+<main class="relative grid place-items-center w-screen ">
+    <section class="absolute  bg-light-black w-3/4 h-auto md:px-16 -top-36  rounded-xl">
         <picture class="absolute top-16 left-64">
             <img src="../../../../assets/vector.svg" alt="">
         </picture>
         <app-section-header></app-section-header>
         <app-section-filter></app-section-filter>
+        <div class="grid grid-cols-1 gap-x-0 md:gap-x-8 md:grid-cols-2  lg:grid-cols-3  ">
+            <app-product-card [product]="product"  *ngFor="let product of products"></app-product-card>
+        </div>
     </section>
     
     
 
-    <!-- <header class="bg-light-black absolute top-28">
-        <h1 class="text-cream font-semibold text-3xl">Our Collection</h1>
-        <p class="text-new-gray text-base font-semibold pt-4">
-            Introducing our Coffee Collection, a selection of unique coffees from different roast types and origins, expertly roasted in small batches and shipped fresh weekly.
-        </p>
-        <nav>
-            <ul class="flex justify-center items-center space-x-6 mt-8 text-sm  list-none">
-                <li class="text-cream font-semibold bg-new-gray rounded-lg p-2">All Products</li>
-                <li class="text-cream font-semibold">Available Now</li>
-            </ul>
-        </nav>
-
-        <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            <app-product-card [product]="product" *ngFor="let product of products"></app-product-card>
-        </div>
-        
-    </header> -->
+    
 
    
    

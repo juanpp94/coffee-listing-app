@@ -1,0 +1,6 @@
+<header class="relative">
+    <span *ngIf="product?.popular" class="absolute flex justify-center items-center ml-5 mt-2 bg-gold rounded-full w-24 font-semibold text-sm">Popular</span>
+    <picture id="coffee-image">
+        <img class="rounded-xl" [src]="product.image" alt="">
+    </picture>
+</header>
