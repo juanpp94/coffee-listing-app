@@ -10,6 +10,7 @@ import { Product } from '../../types/product';
 export class ProductsListComponent implements OnInit {
 
   products: Product[] = [];
+  filteredProducts: Product[] = [];
   constructor(private productsService: ProductsService) {
   }
 
@@ -23,10 +24,22 @@ export class ProductsListComponent implements OnInit {
     this.productsService.fetchProductsList$();
   }
 
+  updateProductsList(filter: string): void {
+    console.log("prueba de que llega al componente",filter);
+    this.productsService.setFilter(filter);
+    this.filteredProducts = this.getFilteredProductsList();
+  }
+
+  getFilteredProductsList(): Product[] {
+    let filteredProducts = this.productsService.getFilteredProductsList(this.products);
+    return filteredProducts;
+  }
+
   getProductsList() {
     this.productsService.getList$().subscribe(
       (products: Product[]) => {
         this.products = products;
+        this.filteredProducts = products;
         console.log("hola",this.products);
       }
     )

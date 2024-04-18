@@ -1,6 +1,6 @@
 <nav>
     <ul class=" flex justify-center items-center space-x-6 mt-72 text-sm list-none">
-        <li class="text-cream font-semibold bg-new-gray rounded-lg p-2">All Products</li>
-        <li class="text-cream font-semibold">Available Now</li>
+        <li (click)="chooseFilter('all')" class="text-cream font-semibold" [ngClass]="styles">All Products</li>
+        <li (click)="chooseFilter('available')" class="text-cream font-semibold">Available Now</li>
     </ul>
 </nav>

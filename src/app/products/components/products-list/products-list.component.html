@@ -1,25 +1,13 @@
 <main class="relative grid place-items-center w-screen ">
     <section class="absolute  bg-light-black w-3/4 h-auto md:px-16 -top-36  rounded-xl">
-        <picture class="absolute top-16 left-64">
+        <picture class="absolute top-16 left-64 lg:left-80">
             <img src="../../../../assets/vector.svg" alt="">
         </picture>
         <app-section-header></app-section-header>
-        <app-section-filter></app-section-filter>
+        <app-section-filter (updateList)="updateProductsList($event)"></app-section-filter>
         <div class="grid grid-cols-1 gap-x-0 md:gap-x-8 md:grid-cols-2  lg:grid-cols-3  ">
-            <app-product-card [product]="product"  *ngFor="let product of products"></app-product-card>
+            <app-product-card [product]="product"  *ngFor="let product of filteredProducts"></app-product-card>
         </div>
     </section>
-    
-    
-
-    
-
-   
-   
 </main>
-
-<!--
-    relative bg-light-black py-10 bottom-20 text-center mx-28 rounded-lg
--->
-
 
